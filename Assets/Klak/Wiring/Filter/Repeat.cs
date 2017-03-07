@@ -56,6 +56,11 @@ namespace Klak.Wiring
 
         IEnumerator InvokeRepeatedly()
         {
+            while(_repeatCount < 0) {
+                _outputEvent.Invoke();
+                yield return new WaitForSeconds(_interval);
+            }
+
             for (var i = 0; i < _repeatCount ; i++)
             {
                 _outputEvent.Invoke();

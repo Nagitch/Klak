@@ -39,6 +39,9 @@ namespace Klak.Wiring
         [SerializeField]
         bool _playOnStart = true;
 
+        [SerializeField]
+        bool _repeat = false;
+
         #endregion
 
         #region Node I/O
@@ -90,10 +93,13 @@ namespace Klak.Wiring
 
         void Update()
         {
-            if (_isPlaying)
-            {
+            if (_isPlaying) {
                 _time += Time.deltaTime * _speed * _timeScale;
                 _floatEvent.Invoke(_curve.Evaluate(_time));
+            }
+
+            if (_repeat && _time >= (1.0f / _speed) * _timeScale) {
+                _time = 0;
             }
         }
 

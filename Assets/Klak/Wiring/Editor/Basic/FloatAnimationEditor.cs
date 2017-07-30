@@ -33,6 +33,7 @@ namespace Klak.Wiring
         SerializedProperty _curve;
         SerializedProperty _speed;
         SerializedProperty _playOnStart;
+        SerializedProperty _repeat;
         SerializedProperty _floatEvent;
 
         void OnEnable()
@@ -40,6 +41,7 @@ namespace Klak.Wiring
             _curve = serializedObject.FindProperty("_curve");
             _speed = serializedObject.FindProperty("_speed");
             _playOnStart = serializedObject.FindProperty("_playOnStart");
+            _repeat = serializedObject.FindProperty("_repeat");
             _floatEvent = serializedObject.FindProperty("_floatEvent");
         }
 
@@ -50,6 +52,7 @@ namespace Klak.Wiring
             EditorGUILayout.PropertyField(_curve);
             EditorGUILayout.PropertyField(_speed);
             EditorGUILayout.PropertyField(_playOnStart);
+            EditorGUILayout.PropertyField(_repeat);
 
             EditorGUILayout.Space();
 
